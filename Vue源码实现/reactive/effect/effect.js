@@ -9,7 +9,7 @@ const effectStack = []; //存储嵌套的堆栈的环境
  * 该函数的作用：执行传入的函数，并在执行的过程中收集依赖
  * @param {Function} fn
  */
-export function effect(fn, options) {
+export function effect(fn, options = {}) {
     const { lazy = false } = options; //是否懒执行
     const environment = () => {
         try {
