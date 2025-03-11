@@ -1,0 +1,35 @@
+[2025-03-11T07:04:26.241Z] native event handler: 这是一个错误呀！！！
+Error: 这是一个错误呀！！！
+    at triggerError (http://localhost:5173/src/App.vue:23:9)
+    at callWithErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2263:19)
+    at callWithAsyncErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2270:17)
+    at HTMLButtonElement.invoker (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:11202:5)
+
+[2025-03-11T07:04:29.035Z] native event handler: 这是一个错误呀！！！
+Error: 这是一个错误呀！！！
+    at triggerError (http://localhost:5173/src/App.vue:23:9)
+    at callWithErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2263:19)
+    at callWithAsyncErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2270:17)
+    at HTMLButtonElement.invoker (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:11202:5)
+
+[2025-03-11T07:04:29.185Z] native event handler: 这是一个错误呀！！！
+Error: 这是一个错误呀！！！
+    at triggerError (http://localhost:5173/src/App.vue:23:9)
+    at callWithErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2263:19)
+    at callWithAsyncErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2270:17)
+    at HTMLButtonElement.invoker (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:11202:5)
+
+[2025-03-11T07:04:29.337Z] native event handler: 这是一个错误呀！！！
+Error: 这是一个错误呀！！！
+    at triggerError (http://localhost:5173/src/App.vue:23:9)
+    at callWithErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2263:19)
+    at callWithAsyncErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2270:17)
+    at HTMLButtonElement.invoker (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:11202:5)
+
+[2025-03-11T07:04:29.483Z] native event handler: 这是一个错误呀！！！
+Error: 这是一个错误呀！！！
+    at triggerError (http://localhost:5173/src/App.vue:23:9)
+    at callWithErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2263:19)
+    at callWithAsyncErrorHandling (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:2270:17)
+    at HTMLButtonElement.invoker (http://localhost:5173/node_modules/.vite/deps/vue.js?v=442eb23d:11202:5)
+
