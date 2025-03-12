@@ -7,7 +7,8 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/treeNode">TreeNode</RouterLink>
+        <RouterLink to="/treeNode">树形组件</RouterLink>
+        <RouterLink to="/debounceTest">自定义Ref防抖</RouterLink>
       </nav>
     </header>
     <RouterView />
