@@ -20,6 +20,9 @@ importers:
       vue-router:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
+      vue3-observe-visibility:
+        specifier: ^1.0.3
+        version: 1.0.3(vue@3.5.13(typescript@5.8.2))
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.0
@@ -27,6 +30,9 @@ importers:
       '@types/jsdom':
         specifier: ^21.1.7
         version: 21.1.7
+      '@types/lodash':
+        specifier: ^4.17.16
+        version: 4.17.16
       '@types/node':
         specifier: ^22.13.9
         version: 22.13.10
@@ -649,6 +655,9 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/lodash@4.17.16':
+    resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
   '@types/node@22.13.10':
     resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
@@ -2062,6 +2071,11 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
+  vue3-observe-visibility@1.0.3:
+    resolution: {integrity: sha512-dPXJu5NADzui/BwvAE2Vu5/dy+aX0UjRQC6hkLFSY5Da0BxCoPlOE/NkFNz3T+tRXAocey9HBOtaUwZOdWX2KQ==}
+    peerDependencies:
+      vue: ^3.x.x
+
   vue@3.5.13:
     resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
     peerDependencies:
@@ -2636,6 +2650,8 @@ snapshots:
       parse5: 7.2.1
 
   '@types/json-schema@7.0.15': {}
+
+  '@types/lodash@4.17.16': {}
 
   '@types/node@22.13.10':
     dependencies:
@@ -4125,6 +4141,10 @@ snapshots:
       '@volar/typescript': 2.4.12
       '@vue/language-core': 2.2.8(typescript@5.8.2)
       typescript: 5.8.2
+
+  vue3-observe-visibility@1.0.3(vue@3.5.13(typescript@5.8.2)):
+    dependencies:
+      vue: 3.5.13(typescript@5.8.2)
 
   vue@3.5.13(typescript@5.8.2):
     dependencies:

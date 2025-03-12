@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import TreeNodeView from '@/views/TreeNodeView.vue'
 import DebounceTestView from '@/views/DebounceTestView.vue'
+import LazyLoadTestView from '@/views/LazyLoadTestView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/debounceTest',
       name: 'debounceTest',
       component: DebounceTestView,
+    },
+    {
+      path: '/lazyLoadTest',
+      name: 'lazyLoadTest',
+      component: LazyLoadTestView,
     },
   ],
 })
