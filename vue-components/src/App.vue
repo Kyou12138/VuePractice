@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <nav>
         <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/treeNode">TreeNode</RouterLink>
       </nav>
     </header>
     <RouterView />
@@ -14,4 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+nav a {
+  margin-right: 10px;
+}
 </style>
