@@ -10,7 +10,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/treeNode">树形组件</RouterLink>
         <RouterLink to="/debounceTest">自定义Ref防抖</RouterLink>
         <RouterLink to="/lazyLoadTest">懒加载</RouterLink>
-        <RouterLink to="/virtualListTest">虚拟列表组件</RouterLink>
+        <RouterLink to="/fixHeightVirtualListTest">固高虚拟列表组件</RouterLink>
+        <RouterLink to="/virtualListTest">非固高虚拟列表组件</RouterLink>
       </nav>
     </header>
     <RouterView />
