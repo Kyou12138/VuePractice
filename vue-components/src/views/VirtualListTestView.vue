@@ -1,11 +1,13 @@
 <template>
     <div id="app">
-        <VirtualListComp :listData="data" :bufferScale="1" :estimatedItemHeight="100" />
+        <VirtualList :list-data :buffer-scale="0.5" />
+        <!-- <VirtualListComp :listData :bufferScale="1" :estimatedItemHeight="100" /> -->
     </div>
 </template>
 
 <script setup lang="ts">
-import VirtualListComp from '@/components/VirtualListComp.vue'
+import VirtualList from '@/components/VirtualList.vue'
+// import VirtualListComp from '@/components/VirtualListComp.vue'
 import type { ListItem } from '@/types/ListItem';
 import { faker } from '@faker-js/faker';
 import { ref, type Ref } from 'vue'
@@ -17,7 +19,7 @@ for (let i = 0; i < 10000; i++) {
     longData.push({ id: i + 1, value: faker.lorem.sentences() })
 }
 
-const data: Ref<ListItem[]> = ref(longData);
+const listData: Ref<ListItem[]> = ref(longData);
 
 </script>
 

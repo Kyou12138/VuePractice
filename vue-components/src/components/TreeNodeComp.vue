@@ -1,36 +1,66 @@
 <template>
-  <div class="tree-node" v-for="(node, index) in data" :key="node.label">
-    <div class="node-label">
-      <button class="toggle-button" @click="isOpenArr[index] = !isOpenArr[index]" v-if="hasChildren(node)">
-        {{ isOpenArr[index] ? "▼" : "▶" }}
-      </button>
-      <input :id="node.label" type="checkbox" v-if="showCheckbox" v-model="node.checked"
-        @change="handleCheckboxChange(node)" />
-      <label :for="node.label">{{ node.label }}</label>
-    </div>
-    <div v-if="transition">
-      <Transition name="expand" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"
-        @before-leave="beforeLeave" @leave="leave" @after-leave="afterLeave">
+  <div>
+    <div class="tree-node" v-for="(node, index) in data" :key="node.label">
+      <div class="node-label">
+        <button
+          class="toggle-button"
+          @click="isOpenArr[index] = !isOpenArr[index]"
+          v-if="hasChildren(node)"
+        >
+          {{ isOpenArr[index] ? '▼' : '▶' }}
+        </button>
+        <input
+          :id="node.label"
+          type="checkbox"
+          v-if="showCheckbox"
+          v-model="node.checked"
+          @change="handleCheckboxChange(node)"
+        />
+        <label :for="node.label">{{ node.label }}</label>
+      </div>
+      <div v-if="transition">
+        <Transition
+          name="expand"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+        >
+          <div v-show="isOpenArr[index]" v-if="hasChildren(node)">
+            <TreeNodeComp
+              :data="node.children || []"
+              :show-checkbox="showCheckbox"
+              :transition="transition"
+              @update:child-check="$emit('update:child-check', node)"
+            />
+          </div>
+        </Transition>
+      </div>
+      <div v-else>
         <div v-show="isOpenArr[index]" v-if="hasChildren(node)">
-          <TreeNodeComp :data="node.children || []" :show-checkbox="showCheckbox" :transition="transition"
-            @update:child-check="$emit('update:child-check', node)" />
+          <TreeNodeComp
+            :data="node.children || []"
+            :show-checkbox="showCheckbox"
+            :transition="transition"
+            @update:child-check="$emit('update:child-check', node)"
+          />
         </div>
-      </Transition>
-    </div>
-    <div v-else>
-      <div v-show="isOpenArr[index]" v-if="hasChildren(node)">
-        <TreeNodeComp :data="node.children || []" :show-checkbox="showCheckbox" :transition="transition"
-          @update:child-check="$emit('update:child-check', node)" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, provide, inject } from 'vue';
-import type { TreeNode } from '@/types/TreeNode';
+import { ref, provide, inject } from 'vue'
+import type { TreeNode } from '@/types/TreeNode'
 
-const { data, showCheckbox = true, transition = true } = defineProps<{ data: TreeNode[], showCheckbox: boolean, transition: boolean }>()
+const {
+  data,
+  showCheckbox = true,
+  transition = true,
+} = defineProps<{ data: TreeNode[]; showCheckbox: boolean; transition: boolean }>()
 
 //向下级提供父节点，以便更新时也能修改父节点的check状态
 const parentNode = inject<TreeNode[]>('parentNode', []) //拿父节点
@@ -41,17 +71,17 @@ const emits = defineEmits(['update:child-check'])
 //控制是否展开
 const isOpenArr = ref(data.map(() => false))
 function hasChildren(node: TreeNode): boolean {
-  return node.children !== undefined && node.children.length > 0;
+  return node.children !== undefined && node.children.length > 0
 }
 
 //处理复选框
 function handleCheckboxChange(node: TreeNode) {
-
   const updateChildrenCheck = (node: TreeNode, checked: boolean) => {
-    node.children && node.children.forEach(m => {
-      m.checked = checked;
-      updateChildrenCheck(m, checked)
-    })
+    node.children &&
+      node.children.forEach((m) => {
+        m.checked = checked
+        updateChildrenCheck(m, checked)
+      })
   }
 
   //1.更新子节点
@@ -61,11 +91,11 @@ function handleCheckboxChange(node: TreeNode) {
     if (node.children) {
       let queue = [...node.children]
       while (queue.length > 0) {
-        const len = queue.length;
+        const len = queue.length
         for (let i = 0; i < len; i++) {
-          const curNode = queue.shift();
+          const curNode = queue.shift()
           if (curNode === childNode) {
-            return true;
+            return true
           }
           if (curNode?.children) {
             queue.push(...curNode.children)
@@ -73,16 +103,16 @@ function handleCheckboxChange(node: TreeNode) {
         }
       }
     }
-    return false;
+    return false
   }
 
   const updateParentCheck = (node: TreeNode) => {
     if (parentNode) {
       for (const pNode of parentNode) {
         if (pNode.children && hasChildren(pNode, node)) {
-          const allChildrenChecked = pNode.children.every(m => m.checked);
+          const allChildrenChecked = pNode.children.every((m) => m.checked)
           if (pNode.checked !== allChildrenChecked) {
-            pNode.checked = allChildrenChecked;
+            pNode.checked = allChildrenChecked
             updateParentCheck(pNode)
           }
         }
@@ -91,7 +121,7 @@ function handleCheckboxChange(node: TreeNode) {
   }
 
   //2.更新父节点
-  updateParentCheck(node);
+  updateParentCheck(node)
 
   //触发自定义事件
   emits('update:child-check', node)
@@ -140,8 +170,6 @@ function afterLeave(el: Element) {
     el.style.maxHeight = 'none'
   }
 }
-
-
 </script>
 
 <style scoped>
